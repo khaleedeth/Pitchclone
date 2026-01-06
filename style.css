@@ -1754,6 +1754,212 @@ body {
     }
 }
 
+
+/* ============================================
+   NEWS SECTION - "New from Pitch"
+   ============================================ */
+
+.news-section {
+    background: white;
+    padding: 120px 2rem;
+}
+
+.news-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Title */
+.news-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #2B2A35;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+/* Flex Container */
+.news-grid {
+    display: flex;
+    gap: 2rem;
+    max-width: 990px;
+}
+
+/* Card */
+.news-card {
+    background: white;
+    padding: 1rem;
+   
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    border: thin solid #F5F5F5;
+    border: 1px solid #E8E8E8;
+    flex: 1;
+}
+
+.news-card:hover {
+    .news-card-title{
+        color: #5F24ED;
+    }
+}
+
+/* Image */
+.news-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: #E8E8E8;
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+}
+
+/* Content */
+.news-content {
+    padding-bottom: 15px;
+}
+
+.news-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #9B63F2;
+    margin-bottom: 1rem;
+}
+
+.news-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2B2A35;
+    line-height: 1.3;
+    margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE - NEWS SECTION
+   ============================================ */
+
+/* Tablet (1024px) */
+@media (max-width: 1024px) {
+    .news-section {
+        padding: 100px 2rem;
+    }
+
+    .news-title {
+        font-size: 3rem;
+        margin-bottom: 4rem;
+    }
+
+    .news-grid {
+        gap: 1.5rem;
+    }
+
+    .news-content {
+        padding: 1.75rem 1.75rem 2rem;
+    }
+
+    .news-card-title {
+        font-size: 1.35rem;
+    }
+}
+@media (max-width: 960px) {
+    .news-grid{
+        flex-direction: column;
+    }
+    .news-card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row-reverse;
+        }
+        .news-image, .news-content{
+            width: 50%;
+        }
+}
+
+/* Tablet Small (768px) - Wrap to 2 columns */
+@media (max-width: 768px) {
+    .news-section {
+        padding: 80px 1.5rem;
+    }
+
+    .news-title {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .news-grid {
+        flex-wrap: wrap;
+        gap: 1.25rem;
+    }
+
+    .news-card {
+        flex: 1 1 calc(50% - 0.625rem);
+    }
+
+    .news-content {
+        padding: 1.5rem 1.5rem 1.75rem;
+    }
+
+    .news-card-title {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .news-card{
+        flex-direction: column;
+    }
+    .news-image, .news-content{
+        width: 100%;
+    }
+}
+
+/* Mobile (480px) - 1 column */
+@media (max-width: 480px) {
+    .news-section {
+        padding: 60px 1rem;
+    }
+
+    .news-title {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .news-grid {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .news-card {
+        flex: 1 1 100%;
+    }
+
+    .news-content {
+        padding: 1.5rem;
+    }
+
+    .news-label {
+        font-size: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .news-card-title {
+        font-size: 1.15rem;
+    }
+}
+
 /* ============================================
    CTA SECTION
    ============================================ */
