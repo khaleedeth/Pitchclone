@@ -1,3 +1,19 @@
+:root {
+    --section-spacing: clamp(48px, 10vw, 80px);
+    --container-padding: clamp(20px, 4vw, 40px);
+    --content-narrow: 740px;
+    --content-wide: 900px;
+    --content-full: 1200px;
+    --container-max: 1440px;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #666;
+    --color-text-tertiary: #999;
+    --color-purple: #9B63F2;
+    --color-purple-dark: #5F23ED;
+    --color-purple-light: #f9f7ff;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -1963,19 +1979,23 @@ body {
 /* ============================================
    CTA SECTION
    ============================================ */
+/* ============================================
+   CTA SECTION - "Get started with Pitch"
+   ============================================ */
+
 .addd {
-    margin-top: 80px;
     min-height: 600px;
-    background-image: url('./images/imgi_1_background.png');
+    background-image: url('../images/imgi_1_background.png');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
-    padding: clamp(60px, 8vw, 80px) var(--container-padding) 0;
+    padding: 80px 2rem 0;
 }
 
 .addd-wrapper {
-    max-width: var(--content-full);
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -1987,102 +2007,205 @@ body {
 .addd-texts {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 2rem;
     align-items: center;
     text-align: center;
-    max-width: var(--content-narrow);
+    max-width: 700px;
 }
 
 .addd-texts h1 {
-    font-size: clamp(40px, 6vw, 72px);
+    font-size: 4.5rem;
     font-weight: 700;
     color: #ffffff;
     line-height: 1.1;
+    margin: 0;
 }
 
 .addd-texts a {
-    padding: 14px 32px;
+    padding: 14px 36px;
     border-radius: 8px;
     background: linear-gradient(135deg, #FFD02C, #FFB800);
     color: #371789;
-    font-weight: 600;
-    font-size: 16px;
+    font-weight: 700;
+    font-size: 1.05rem;
     text-decoration: none;
     display: inline-block;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 208, 44, 0.3);
 }
 
 .addd-texts a:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(255, 208, 44, 0.4);
+    box-shadow: 0 8px 24px rgba(255, 208, 44, 0.5);
 }
 
 .addd-list {
     display: flex;
-    gap: 32px;
+    gap: 2.5rem;
     color: #ffffff;
-    font-size: 16px;
+    font-size: 1.05rem;
     flex-wrap: wrap;
     justify-content: center;
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .addd-list li {
     display: flex;
     align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
 }
 
 .addd-list li::before {
     content: "✓";
-    margin-right: 8px;
-    font-weight: bold;
-    font-size: 18px;
+    font-weight: 700;
+    font-size: 1.25rem;
 }
 
 .add-img {
-    margin-top: 40px;
+    margin-top: 3rem;
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
 .add-img img {
-    width: clamp(320px, 60vw, 700px);
+    width: 100%;
+    max-width: 700px;
     height: auto;
     object-fit: contain;
 }
 
-@media (max-width: 767px) {
+/* ============================================
+   RESPONSIVE - CTA SECTION
+   ============================================ */
+
+/* Tablet (1024px) */
+@media (max-width: 1024px) {
     .addd {
-        min-height: 500px;
+        min-height: 550px;
+        padding: 70px 2rem 0;
     }
 
     .addd-texts h1 {
-        font-size: 40px;
+        font-size: 3.5rem;
+    }
+
+    .add-img img {
+        max-width: 600px;
+    }
+}
+
+/* Tablet Small (768px) */
+@media (max-width: 768px) {
+    .addd {
+        min-height: 500px;
+        padding: 60px 1.5rem 0;
+    }
+
+    .addd-texts {
+        gap: 1.75rem;
+    }
+
+    .addd-texts h1 {
+        font-size: 2.75rem;
+    }
+
+    .addd-texts a {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+    .addd-list {
+        gap: 2rem;
+        font-size: 1rem;
+    }
+
+    .add-img {
+        margin-top: 2.5rem;
+    }
+
+    .add-img img {
+        max-width: 500px;
+    }
+}
+
+/* Mobile Large (600px) */
+@media (max-width: 600px) {
+    .addd {
+        min-height: 450px;
+        padding: 50px 1rem 0;
+    }
+
+    .addd-texts h1 {
+        font-size: 2.25rem;
     }
 
     .addd-list {
         flex-direction: column;
-        gap: 16px;
-        align-items: flex-start;
+        gap: 1rem;
+        align-items: center;
     }
 
-    .addd-texts a {
-        padding: 12px 24px;
-        font-size: 14px;
+    .add-img img {
+        max-width: 400px;
     }
 }
 
-@media (max-width: 479px) {
+/* Mobile (480px) */
+@media (max-width: 480px) {
     .addd {
-        min-height: 450px;
+        min-height: 420px;
+        padding: 40px 1rem 0;
+    }
+
+    .addd-texts {
+        gap: 1.5rem;
     }
 
     .addd-texts h1 {
-        font-size: 32px;
+        font-size: 2rem;
+    }
+
+    .addd-texts a {
+        padding: 11px 26px;
+        font-size: 0.95rem;
+    }
+
+    .addd-list {
+        font-size: 0.95rem;
+        gap: 0.875rem;
+    }
+
+    .addd-list li::before {
+        font-size: 1.1rem;
+    }
+
+    .add-img {
+        margin-top: 2rem;
+    }
+
+    .add-img img {
+        max-width: 320px;
     }
 }
 
+/* Mobile Small (360px) */
+@media (max-width: 360px) {
+    .addd {
+        min-height: 400px;
+    }
+
+    .addd-texts h1 {
+        font-size: 1.75rem;
+    }
+
+    .add-img img {
+        max-width: 280px;
+    }
+}
 /* ============================================
 FOOTER
 ============================================ */
@@ -2158,6 +2281,9 @@ FOOTER
     justify-content: space-between;
     align-items: center;
     padding-top: 32px;
+}
+.eba{
+    color: #2B2A35;
 }
 
 .footer-bottom-left {
