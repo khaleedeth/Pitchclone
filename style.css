@@ -1119,7 +1119,7 @@ body {
    INTEGRATIONS SECTION (CAROUSEL)
    ============================================ */
 .integrations-section {
-    background: #F0EFF4;
+    background-color: white;
     padding: 120px 2rem;
 }
 
@@ -1131,12 +1131,12 @@ body {
 /* Header */
 .integrations-header {
     text-align: center;
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto 4rem;
 }
 
 .integrations-title {
-    font-size: 3rem;
+    font-size: 3.6rem;
     font-weight: 700;
     color: #2B2A35;
     margin-bottom: 1.5rem;
@@ -1144,7 +1144,7 @@ body {
 }
 
 .integrations-subtitle {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     color: #5A5A5A;
     line-height: 1.6;
     margin-bottom: 2rem;
@@ -1153,7 +1153,7 @@ body {
 .integrations-link {
     display: inline-block;
     color: #5F24ED;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 600;
     text-decoration: none;
     transition: transform 0.3s ease;
@@ -1285,157 +1285,789 @@ body {
 }
 
 /* Carousel Controls */
-.carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: white;
-    border: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
+.carousel-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 2rem 0;
+}
+
+.carousel-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+/* Carousel Track */
+.carousel-track {
     display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    padding: 0 calc(50% - 500px); /* Centers middle card */
     align-items: center;
-    justify-content: center;
+}
+
+/* Carousel Item */
+.carousel-item {
+    flex: 0 0 1000px; /* Fixed width */
+    min-width: 1000px;
+    background: white;
+    border-radius: 24px;
+    padding: 4rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Content - Left Side */
+.carousel-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.carousel-logo {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.carousel-content h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
     color: #2B2A35;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-    z-index: 10;
+    margin: 0;
+    line-height: 1.2;
 }
 
-.carousel-control:hover {
-    background: #5F24ED;
-    color: white;
-    box-shadow: 0 6px 16px rgba(95, 36, 237, 0.3);
+.carousel-content p {
+    font-size: 1.15rem;
+    color: #5A5A5A;
+    line-height: 1.6;
+    margin: 0;
 }
 
-.carousel-control.prev {
-    left: 0;
+/* Image - Right Side */
+.carousel-image {
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #E8E8E8;
 }
 
-.carousel-control.next {
-    right: 0;
+.carousel-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
-/* Carousel Indicators */
-.carousel-indicators {
+/* Dots Navigation */
+.carousel-dots {
     display: flex;
     justify-content: center;
     gap: 0.75rem;
-    margin-top: 2.5rem;
+    margin-top: 3rem;
+    padding: 0 2rem;
 }
 
-.indicator {
-    width: 12px;
-    height: 12px;
+.dot {
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    background: #D0D0D0;
-    border: none;
+    background: #D4D4D4;
     cursor: pointer;
     transition: all 0.3s ease;
-    padding: 0;
 }
 
-.indicator:hover {
-    background: #A0A0A0;
-}
-
-.indicator.active {
+.dot.active {
     background: #5F24ED;
     width: 32px;
-    border-radius: 6px;
+    border-radius: 5px;
 }
 
 /* ============================================
-   RESPONSIVE
+   RESPONSIVE - CAROUSEL SECTION
    ============================================ */
 
-@media (max-width: 1024px) {
-    .integrations-section {
-        padding: 100px 2rem;
+/* Desktop Large (1400px) */
+@media (max-width: 1400px) {
+    .carousel-track {
+        padding: 0 calc(50% - 450px);
     }
 
-    .integrations-title {
-        font-size: 2.5rem;
+    .carousel-item {
+        flex: 0 0 900px;
+        min-width: 900px;
+        padding: 3.5rem;
+        gap: 3rem;
     }
 
-    .carousel-slide {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+    .carousel-content h3 {
+        font-size: 2.25rem;
+    }
+
+    .carousel-content p {
+        font-size: 1.05rem;
     }
 }
 
-@media (max-width: 768px) {
-    .integrations-section {
-        padding: 80px 1.5rem;
+/* Tablet (1024px) */
+@media (max-width: 1024px) {
+    .carousel-section {
+        padding: 100px 0;
     }
 
-    .integrations-title {
+    .carousel-heading {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .carousel-track {
+        padding: 0 calc(50% - 350px);
+    }
+
+    .carousel-item {
+        flex: 0 0 700px;
+        min-width: 700px;
+        padding: 3rem;
+        gap: 2.5rem;
+    }
+
+    .carousel-logo {
+        width: 56px;
+        height: 56px;
+    }
+
+    .carousel-content h3 {
         font-size: 2rem;
     }
 
-    .carousel-container {
+    .carousel-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Tablet Small (768px) */
+@media (max-width: 768px) {
+    .carousel-section {
+        padding: 80px 0;
+    }
+
+    .carousel-heading {
+        font-size: 2.5rem;
+    }
+
+    .carousel-track {
+        padding: 0 calc(50% - 280px);
+        gap: 2rem;
+    }
+
+    .carousel-item {
+        flex: 0 0 560px;
+        min-width: 560px;
+        flex-direction: column;
+        padding: 2.5rem;
+        gap: 2rem;
+    }
+
+    .carousel-content h3 {
+        font-size: 1.75rem;
+    }
+
+    .carousel-content p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobile (480px) */
+@media (max-width: 480px) {
+    .carousel-section {
+        padding: 60px 0;
+    }
+
+    .carousel-heading {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .carousel-track {
+        padding: 0 calc(50% - 160px);
+        gap: 1.5rem;
+    }
+
+    .carousel-item {
+        flex: 0 0 320px;
+        min-width: 320px;
+        padding: 2rem;
+        gap: 1.5rem;
+    }
+
+    .carousel-logo {
+        width: 48px;
+        height: 48px;
+    }
+
+    .carousel-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .carousel-content p {
+        font-size: 0.9rem;
+    }
+
+    .carousel-dots {
+        margin-top: 2rem;
+    }
+}
+
+
+/* ============================================
+   PRESENTATIONS CAROUSEL SECTION
+   ============================================ */
+
+.presentations-carousel-section {
+    background: white;
+    padding: 120px 0;
+    overflow: hidden;
+}
+
+.presentations-container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Header Section */
+.presentations-header {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+}
+
+.presentations-heading {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #2B2A35;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.presentations-description {
+    font-size: 1.15rem;
+    color: #5A5A5A;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.presentations-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #7B3FED;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.presentations-link:hover {
+    color: #5F24ED;
+    transform: translateX(5px);
+}
+
+.presentations-link i {
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.presentations-link:hover i {
+    transform: translateX(3px);
+}
+
+/* Wrapper with Navigation */
+.presentations-wrapper {
+    position: relative;
+    padding: 0 80px;
+}
+
+/* Navigation Arrows */
+.carousel-arrow {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #E8E8E8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    color: #2B2A35;
+    font-size: 1.25rem;
+}
+
+.carousel-arrow:hover {
+    background: white;
+    border-color: #5F24ED;
+    color: #5F24ED;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 12px rgba(95, 36, 237, 0.2);
+}
+
+.arrow-left {
+    left: 20px;
+}
+
+.arrow-right {
+    right: 20px;
+}
+
+/* Track */
+.presentations-track {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 2rem calc(50% - 400px);
+}
+
+.presentations-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* Presentation Slide */
+.presentation-slide {
+    flex: 0 0 800px;
+    min-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Preview Image */
+.presentation-preview {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    background: #E8E8E8;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.presentation-slide:hover .presentation-preview {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.18);
+}
+
+.presentation-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Info Section */
+.presentation-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.presentation-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #E8E8E8;
+    flex-shrink: 0;
+}
+
+.presentation-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.presentation-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #2B2A35;
+    margin: 0;
+}
+
+.presentation-meta {
+    font-size: 0.95rem;
+    color: #5A5A5A;
+    margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE - PRESENTATIONS CAROUSEL
+   ============================================ */
+
+/* Desktop XL (1600px+) */
+@media (min-width: 1600px) {
+    .presentations-track {
+        padding: 2rem calc(50% - 500px);
+    }
+
+    .presentation-slide {
+        flex: 0 0 1000px;
+        min-width: 1000px;
+    }
+}
+
+/* Desktop Large (1400px) */
+@media (max-width: 1400px) {
+    .presentations-track {
+        padding: 2rem calc(50% - 400px);
+    }
+
+    .presentation-slide {
+        flex: 0 0 800px;
+        min-width: 800px;
+    }
+}
+
+/* Laptop (1200px) */
+@media (max-width: 1200px) {
+    .presentations-carousel-section {
+        padding: 100px 0;
+    }
+
+    .presentations-heading {
+        font-size: 3rem;
+    }
+
+    .presentations-description {
+        font-size: 1.05rem;
+    }
+
+    .presentations-track {
+        padding: 2rem calc(50% - 350px);
+    }
+
+    .presentation-slide {
+        flex: 0 0 700px;
+        min-width: 700px;
+    }
+
+    .carousel-arrow {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* Tablet Large (1024px) */
+@media (max-width: 1024px) {
+    .presentations-track {
+        padding: 2rem calc(50% - 300px);
+    }
+
+    .presentation-slide {
+        flex: 0 0 600px;
+        min-width: 600px;
+    }
+}
+
+/* Tablet (900px) */
+@media (max-width: 900px) {
+    .presentations-carousel-section {
+        padding: 90px 0;
+    }
+
+    .presentations-header {
+        margin-bottom: 4rem;
+    }
+
+    .presentations-heading {
+        font-size: 2.75rem;
+    }
+
+    .presentations-track {
+        padding: 2rem calc(50% - 260px);
+        gap: 1.75rem;
+    }
+
+    .presentation-slide {
+        flex: 0 0 520px;
+        min-width: 520px;
+    }
+
+    .carousel-arrow {
+        width: 42px;
+        height: 42px;
+        top: 35%;
+    }
+
+    .arrow-left {
+        left: 15px;
+    }
+
+    .arrow-right {
+        right: 15px;
+    }
+}
+
+/* Tablet Small (768px) */
+@media (max-width: 768px) {
+    .presentations-carousel-section {
+        padding: 80px 0;
+    }
+
+    .presentations-header {
+        margin-bottom: 3.5rem;
+    }
+
+    .presentations-heading {
+        font-size: 2.5rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .presentations-description {
+        font-size: 1rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .presentations-link {
+        font-size: 1rem;
+    }
+
+    .presentations-wrapper {
         padding: 0 50px;
     }
 
-    .carousel-slide {
-        grid-template-columns: 1fr;
+    .presentations-track {
+        padding: 2rem calc(50% - 220px);
+        gap: 1.5rem;
+    }
+
+    .presentation-slide {
+        flex: 0 0 440px;
+        min-width: 440px;
         gap: 1.25rem;
     }
 
-    .carousel-control {
+    .carousel-arrow {
         width: 40px;
         height: 40px;
         font-size: 1rem;
     }
 
-    .integration-logo {
-        height: 180px;
+    .arrow-left {
+        left: 10px;
     }
 
-    .integration-logo img {
-        max-width: 100px;
-        max-height: 100px;
+    .arrow-right {
+        right: 10px;
+    }
+
+    .presentation-avatar {
+        width: 50px;
+        height: 50px;
+    }
+
+    .presentation-title {
+        font-size: 1.05rem;
+    }
+
+    .presentation-meta {
+        font-size: 0.9rem;
     }
 }
 
+/* Mobile Large (600px) */
+@media (max-width: 600px) {
+    .presentations-carousel-section {
+        padding: 70px 0;
+    }
+
+    .presentations-heading {
+        font-size: 2.25rem;
+    }
+
+    .presentations-track {
+        padding: 2rem calc(50% - 180px);
+    }
+
+    .presentation-slide {
+        flex: 0 0 360px;
+        min-width: 360px;
+    }
+
+    .presentation-avatar {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+/* Mobile (480px) */
 @media (max-width: 480px) {
-    .integrations-section {
-        padding: 60px 1rem;
+    .presentations-carousel-section {
+        padding: 60px 0;
     }
 
-    .integrations-title {
-        font-size: 1.75rem;
+    .presentations-header {
+        margin-bottom: 3rem;
     }
 
-    .carousel-container {
+    .presentations-heading {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .presentations-description {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .presentations-link {
+        font-size: 0.95rem;
+    }
+
+    .presentations-wrapper {
         padding: 0 40px;
     }
 
-    .carousel-control {
-        width: 35px;
-        height: 35px;
+    .presentations-track {
+        padding: 2rem calc(50% - 150px);
+        gap: 1.25rem;
+    }
+
+    .presentation-slide {
+        flex: 0 0 300px;
+        min-width: 300px;
+        gap: 1rem;
+    }
+
+    .carousel-arrow {
+        width: 36px;
+        height: 36px;
         font-size: 0.9rem;
     }
 
-    .integration-logo {
-        height: 160px;
+    .arrow-left {
+        left: 5px;
     }
 
-    .integration-logo img {
-        max-width: 90px;
-        max-height: 90px;
+    .arrow-right {
+        right: 5px;
+    }
+
+    .presentation-avatar {
+        width: 44px;
+        height: 44px;
+    }
+
+    .presentation-title {
+        font-size: 0.95rem;
+    }
+
+    .presentation-meta {
+        font-size: 0.85rem;
     }
 }
+
+/* Mobile Small (375px) */
+@media (max-width: 375px) {
+    .presentations-heading {
+        font-size: 1.85rem;
+    }
+
+    .presentations-description {
+        font-size: 0.9rem;
+    }
+
+    .presentations-track {
+        padding: 2rem calc(50% - 135px);
+    }
+
+    .presentation-slide {
+        flex: 0 0 270px;
+        min-width: 270px;
+    }
+
+    .presentation-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .presentation-title {
+        font-size: 0.9rem;
+    }
+
+    .presentation-meta {
+        font-size: 0.8rem;
+    }
+}
+
+/* Mobile Tiny (320px) */
+@media (max-width: 320px) {
+    .presentations-carousel-section {
+        padding: 50px 0;
+    }
+
+    .presentations-heading {
+        font-size: 1.65rem;
+    }
+
+    .presentations-description {
+        font-size: 0.85rem;
+    }
+
+    .presentations-wrapper {
+        padding: 0 35px;
+    }
+
+    .presentations-track {
+        padding: 2rem calc(50% - 120px);
+        gap: 1rem;
+    }
+
+    .presentation-slide {
+        flex: 0 0 240px;
+        min-width: 240px;
+    }
+
+    
+
+    .presentation-avatar {
+        width: 38px;
+        height: 38px;
+    }
+
+    .presentation-title {
+        font-size: 0.85rem;
+    }
+
+    .presentation-meta {
+        font-size: 0.75rem;
+    }
+}
+
 
 /* ============================================
    TEAMS SECTION
    ============================================ */
 
 .teams-section {
-    background: linear-gradient(to bottom, #f0f0f0, #ffffff);;
+    background-color: white;
     /* padding: 120px 2rem; */
     position: relative;
     overflow: hidden;
@@ -1443,6 +2075,7 @@ body {
 }
 
 .teams-container {
+     background: linear-gradient(to bottom, #f0f0f0, #ffffff);;
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
